@@ -51,10 +51,7 @@ the table and load only selected items from the server as the same time as butto
             initSelectTable();
             
             var aData = data_table_sites.fnGetData( this );
-//            var iId = aData[0];
-			
-			// .row_selected class indicates row was selected
-            if (/*$(this).hasClass('row_selected') &&*/ !isDataSelected(aData, selected_data) == true )
+            if (!isDataSelected(aData, selected_data) == true )
             {
                     selected_data[selected_data.length++] = aData;
             }
@@ -75,7 +72,6 @@ the table and load only selected items from the server as the same time as butto
                 initSelectTable();
                 
                 //load selection items
-//                var data = getSelectedData(data_table_sites);
                 data_table_sites_select.fnClearTable();
                 data_table_sites_select.fnAddData(selected_data);
                 
@@ -137,16 +133,6 @@ the table and load only selected items from the server as the same time as butto
             "sAjaxSource":      '<?php echo ROOT_PATH ?>sites/json',
             "sDom":             'lrtip',
             "fnRowCallback":    function( nRow, aData, iDisplayIndex ) {
-//                var compare = data_table_sites.fnGetData( nRow );
-//                for each(item in selected_data){
-////                    if ( jQuery.inArray(aData, selected_data) != -1 )
-////                    var comp_item = item.toString;
-////                    var comp_item = item.toString;
-//                    if(item.toString() === aData.toString())
-//                    {
-//                        $(nRow).addClass('row_selected');
-//                    }
-//                }
                 if(isDataSelected(aData, selected_data)){
                     $(nRow).addClass('row_selected');
                 }
